@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"lab2","c":"Atom","l":"Atom(int, int, int)","url":"%3Cinit%3E(int,int,int)"},{"p":"lab2","c":"Atom","l":"decay()"},{"p":"lab2","c":"Atom","l":"getAtomicCharge()"},{"p":"lab2","c":"Atom","l":"getAtomicMass()"}]
