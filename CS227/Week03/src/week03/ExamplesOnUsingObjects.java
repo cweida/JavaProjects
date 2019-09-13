@@ -1,7 +1,6 @@
 package week03;
 
-import java.awt.Rectangle;
-import java.awt.Button;
+
 
 public class ExamplesOnUsingObjects {
 	public static void main(String[]args) {
@@ -30,7 +29,7 @@ public class ExamplesOnUsingObjects {
 		// Need a constructor to use rectangle
 		
 		
-		Rectangle door = new Rectangle(0,0,3,3);
+	
 		
 		
 		//Check API to see possible Rectangle methods
