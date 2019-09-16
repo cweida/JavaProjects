@@ -23,7 +23,9 @@ public class WirelessPrinter {
 	
 	private boolean power;
 	
-	private int currentPages;
+	private int currentPages1;
+	
+	private int currentPages2;
 	
 	private double inkLevel_1;
 	
@@ -32,6 +34,29 @@ public class WirelessPrinter {
 	private int pagesPrinted;
 	
 	private int totalPaperUsed;
+	
+	
+	public WirelessPrinter() {
+		connection = false;
+		power = false;
+		currentPages1 = currentPages2 = 0;
+		inkLevel_1 = inkLevel_2 = 0.5;
+		pagesPrinted = 0;
+		totalPaperUsed = 0;
+		
+		
+	}
+	public WirelessPrinter(double ink, int paper) {
+		connection = false;
+		power = false;
+		currentPages1 = currentPages2 = Math.min(Math.max(paper, 0),500);
+		inkLevel_1 = inkLevel_2 = Math.max(Math.min(ink, 1.0),0);
+		pagesPrinted = 0;
+		totalPaperUsed = 0;
+		
+		
+	}
+	
 	
 	
 	
@@ -64,7 +89,7 @@ public class WirelessPrinter {
 	 */
 	
 	public int getPaperLevel() {
-		return (int) Math.floor((currentPages/TRAY_CAPACITY)*100);
+		return (int) Math.floor((currentPages1/TRAY_CAPACITY)*100);
 	}
 	
 	/**
@@ -73,7 +98,7 @@ public class WirelessPrinter {
 	 */
 	
 	public int getPaperLevelExact() {
-		return currentPages;
+		return currentPages1;
 	}
 	
 	/**
@@ -113,9 +138,9 @@ public class WirelessPrinter {
 	 * 0 <= currentPages <= 500
 	 */
 	public void loadPaper(int pages) {
-		currentPages = currentPages += pages;
-		currentPages = Math.min(500, currentPages);
-		currentPages = Math.max(0, currentPages);
+		currentPages1 += pages;
+		currentPages1 = Math.min(500, currentPages1);
+		currentPages1 = Math.max(0, currentPages1);
 	}
 	
 	/**
@@ -126,9 +151,18 @@ public class WirelessPrinter {
 	 * 
 	 */
 	public void print(int pages) {
-		
-		
-		
+		if (connection == false) {
+			return;
+		}
+		else {
+			currentPages2 = currentPages1 - pages;
+			currentPages2 = Math.max(0,currentPages2);
+			totalPaperUsed += currentPages1 - currentPages2;
+			inkLevel_2 = Math.max(inkLevel_1-pages*.001,0);
+			pagesPrinted += (inkLevel_1 - inkLevel_2)*1000;
+			currentPages1 = currentPages2;
+			inkLevel_1 = inkLevel_2;
+		}
 		
 	}
 	
