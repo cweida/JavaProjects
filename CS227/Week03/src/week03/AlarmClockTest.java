@@ -21,6 +21,9 @@ public class AlarmClockTest {
 		Clock1.minute();
 		Clock1.minute();
 		Clock1.minute();
+		
+		Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();Clock1.hour();
+		
 		System.out.println(Clock1.toString());
 	}
 

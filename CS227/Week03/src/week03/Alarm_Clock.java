@@ -21,6 +21,11 @@ public Alarm_Clock(int givenHour, int givenMinute) {
 		
 	}
 	
+public void setAlarm(boolean on) {
+	Alarm = on;
+	
+}
+
 public void hour() {
 		
 		Hour += 1;
