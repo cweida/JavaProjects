@@ -89,7 +89,18 @@ public class WirelessPrinter {
 	 */
 	
 	public int getPaperLevel() {
-		return (int) Math.floor((currentPages1/TRAY_CAPACITY)*100);
+		/*
+		Double cP1 = new Double(currentPages1);
+		Double TC = new Double(TRAY_CAPACITY);
+		double prop = cP1/TC;
+		prop = prop *100;
+		return (int) prop;
+		*/
+		int cP1 = currentPages1*100;
+		int TC = TRAY_CAPACITY;
+		int prop = cP1/TC;
+		return prop;
+		
 	}
 	
 	/**
